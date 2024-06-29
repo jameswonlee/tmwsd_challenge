@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
   })
 })
 
-// Queries single message
+// Queries single message and then deletes from database
 router.get('/message/:id', (req, res) => {
   const id = req.params.id;
 
@@ -36,12 +36,25 @@ router.get('/message/:id', (req, res) => {
 router.post('/create', (req, res) => {
   const message = req.body.content;
 
-  db.run('INSERT INTO messages (message) VALUES (?)', [message], (err, row) => {
+  db.run('INSERT INTO messages (message) VALUES (?)', [message], (err) => {
     if (err) {
       return console.error(err.message);
     }
     res.redirect('/');
   })
 });
+
+// Deletes message from database
+router.delete('/message/:id', (req, res) => {
+  const id = req.params.id;
+
+  db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log(`Message with id: ${id} deleted from database`);
+    res.status(200).send('Message deleted');
+  })
+})
 
 module.exports = router
