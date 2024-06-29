@@ -1,0 +1,8 @@
+doctype html
+html
+  head
+    title Message #{message.id}
+  body
+    h1 Message #{message.id}
+    p= message.message
+    a(href='/messages') Back to Messages
