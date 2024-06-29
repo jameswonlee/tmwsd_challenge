@@ -23,15 +23,12 @@ router.get('/message/:id', (req, res) => {
     }
     res.render('messages/show', { message: row });
 
-    setTimeout(() => {
-      db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
-        if (err) {
-          return console.error(err.message)
-        }
-        console.log(`Message with id: ${id} deleted from database`)
-      })
-      res.redirect('/')
-    }, 5000)
+    db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
+      if (err) {
+        return console.error(err.message)
+      }
+      console.log(`Message with id: ${id} deleted from database`)
+    })
   })
 })
 
