@@ -11,3 +11,6 @@ const db = new sqlite3.Database('./messages.db', sqlite3.OPEN_READWRITE | sqlite
         )`);
     }
 });
+
+
+module.exports = db;

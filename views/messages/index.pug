@@ -1,1 +1,19 @@
-h1 TMWSD is #{adjective}!
+//- h1 TMWSD is #{adjective}!
+
+doctype html
+html
+  head
+    title Self-Destructing Messages
+    link(rel="stylesheet" href="/styles.css")
+  body
+    .container
+      h1 Create a New Message
+      form(action="/create" method="POST")
+        .form-group
+          textarea.form-control(name="content" required)
+        button.btn(type="submit") Create
+      h2 Messages
+      ul
+        each message in messages
+          li
+            a(href=`/message/${message.id}`) View Message #{message.id}

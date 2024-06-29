@@ -1,10 +1,11 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
+const messagesRouter = require('./routes/messages')
 
-const messagesRoute = require('./routes/messages')
-app.use('/', messagesRoute)
-app.set('view engine', 'pug')
+app.set('view engine', 'pug');
+app.use(express.urlencoded({ extended: true }));
+app.use('/', messagesRouter);
 
 app.listen(port, () => {
   console.log(`TMWSD is listening at http://localhost:${port}`)
