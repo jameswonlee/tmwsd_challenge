@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
 const dayjs = require('dayjs');
+const utc = require('dayjs/plugin/utc');
+dayjs.extend(utc);
+
 
 // Queries all messages
 router.get('/', function (req, res) {
@@ -36,12 +39,12 @@ router.get('/message/:id', (req, res) => {
     }
     res.render('messages/show', { message: row, dayjs: dayjs });
     
-    db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
-      if (err) {
-        return console.error(err.message);
-      }
-      console.log(`Message with id: ${id} deleted from database`);
-    })
+    // db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
+    //   if (err) {
+    //     return console.error(err.message);
+    //   }
+    //   console.log(`Message with id: ${id} deleted from database`);
+    // })
   })
 })
 

@@ -1,0 +1,19 @@
+@media screen and (min-width:1600px) {
+    body {
+        width: 1600px;
+        margin: 0 auto;
+        background-color: rgb(163, 182, 220);
+    }
+
+    .message-outer-container {
+        background-color: rgb(163, 182, 220);
+    }
+
+    body {
+        background-color: rgb(219, 220, 250);
+    }
+}
+
+.message-outer-container {
+    background-color: rgb(163, 182, 220);
+}

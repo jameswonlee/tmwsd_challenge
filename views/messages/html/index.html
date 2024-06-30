@@ -2,21 +2,22 @@
 <html>
   <head> 
     <title>Self-Destructing Messages</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/index.css">
   </head>
   <body>
     <div class="outer-container">
-      <h1 class="heading-font">Burn Messenger</h1>
+      <h1 class="burn-messenger-header">Burn Messenger</h1>
       <div class="form-container">
         <form action="/create" method="POST">
           <div class="text-area-container">
-            <textarea class="message-text" name="content"></textarea>
+            <textarea class="message-text-area" name="content"></textarea>
             <button class="submit-btn" type="submit">Create Message</button>
           </div>
         </form>
         <div class="messages-container">
-          <h2 class="messages-font"> </h2>
-          <ul></ul>
+          <h2 class="messages-header">Messages</h2>
+          <li class="messages"></li>
+          <div class="test"></div>
         </div>
       </div>
     </div>
