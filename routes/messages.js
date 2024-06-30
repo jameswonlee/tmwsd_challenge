@@ -13,6 +13,18 @@ router.get('/', function (req, res) {
   })
 })
 
+// Creates a message
+router.post('/create', (req, res) => {
+  const message = req.body.content;
+
+  db.run('INSERT INTO messages (message) VALUES (?)', [message], (err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    res.redirect('/');
+  })
+});
+
 // Queries single message and then deletes from database
 router.get('/message/:id', (req, res) => {
   const id = req.params.id;
@@ -31,18 +43,6 @@ router.get('/message/:id', (req, res) => {
     })
   })
 })
-
-// Creates a message
-router.post('/create', (req, res) => {
-  const message = req.body.content;
-
-  db.run('INSERT INTO messages (message) VALUES (?)', [message], (err) => {
-    if (err) {
-      return console.error(err.message);
-    }
-    res.redirect('/');
-  })
-});
 
 // Deletes message from database
 router.delete('/message/:id', (req, res) => {
