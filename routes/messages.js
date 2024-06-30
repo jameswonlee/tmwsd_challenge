@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
+const dayjs = require('dayjs');
 
 // Queries all messages
 router.get('/', function (req, res) {
@@ -9,7 +10,7 @@ router.get('/', function (req, res) {
     if (err) {
       return console.error(err.message);
     }
-    res.render('messages/index', { messages: rows });
+    res.render('messages/index', { messages: rows, dayjs: dayjs });
   })
 })
 
@@ -33,13 +34,13 @@ router.get('/message/:id', (req, res) => {
     if (err) {
       return console.error(err.message);
     }
-    res.render('messages/show', { message: row });
-
+    res.render('messages/show', { message: row, dayjs: dayjs });
+    
     db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
       if (err) {
-        return console.error(err.message)
+        return console.error(err.message);
       }
-      console.log(`Message with id: ${id} deleted from database`)
+      console.log(`Message with id: ${id} deleted from database`);
     })
   })
 })

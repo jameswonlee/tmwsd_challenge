@@ -1,0 +1,33 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    /* -webkit-font-smoothing: initial; */
+}
+
+.outer-container {
+    border: solid;
+    border-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    border: solid;
+    border-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-area-container {
+    border: solid;
+    border-color: green;
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-btn {
+    background-color: red;
+    margin-top: 20px;
+}

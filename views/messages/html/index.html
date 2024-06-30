@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <title>Self-Destructing Messages</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="outer-container">
+      <h1 class="heading-font">Burn Messenger</h1>
+      <div class="form-container">
+        <form action="/create" method="POST">
+          <div class="text-area-container">
+            <textarea class="message-text" name="content"></textarea>
+            <button class="submit-btn" type="submit">Create Message</button>
+          </div>
+        </form>
+        <div class="messages-container">
+          <h2 class="messages-font"> </h2>
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -7,7 +7,8 @@ const db = new sqlite3.Database('db/messages.db', sqlite3.OPEN_READWRITE | sqlit
 
         db.run(`CREATE TABLE IF NOT EXISTS messages (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            message TEXT NOT NULL
+            message TEXT NOT NULL,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
         )`);
     }
 });

@@ -1,1 +1,20 @@
+doctype html
+html
+    head 
+        title Self-Destructing Messages
+        link(rel="stylesheet" href="/styles.css")
+    body
+        div.outer-container
+            h1.heading-font Burn Messenger
+            div.form-container
+                form(action="/create" method="POST")
+                    div.text-area-container
+                        textarea.message-text(name="content")
+                        button.submit-btn(type="submit") Create Message
+                .messages-container
+                    h2.messages-font 
+                    ul 
+                        each message in messages 
+                            li 
+                                a(href=`/message/${message.id}`) View message from (#{dayjs(message.timestamp).format('MMM-D-YY h:m:s')})
 
