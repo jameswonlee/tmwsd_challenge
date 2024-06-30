@@ -8,7 +8,6 @@
     body {
         width: 1600px;
         margin: 0 auto;
-        /* background-color: rgb(163, 182, 220); */
     }
 
     .outer-container {
@@ -24,10 +23,6 @@
     }
 }
 
-/* body {
-    max-width: 1600px;
-} */
-
 .outer-container {
     border: solid;
     border-color: blue;
@@ -36,8 +31,6 @@
     flex-direction: column;
     align-items: center;
 }
-
-
 
 .form-container {
     border: solid;
