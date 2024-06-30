@@ -33,7 +33,7 @@ router.post('/create', (req, res) => {
 router.get('/message/:id', (req, res) => {
   const id = req.params.id;
 
-  db.get('SELECT message FROM messages WHERE id = (?)', [id], (err, row) => {
+  db.get('SELECT * FROM messages WHERE id = (?)', [id], (err, row) => {
     if (err) {
       return console.error(err.message);
     }
