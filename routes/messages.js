@@ -8,7 +8,6 @@ dayjs.extend(utc);
 
 // Queries all messages
 router.get('/', function (req, res) {
-  // res.render('messages/index', { adjective: 'here' })
   db.all('SELECT * FROM messages', (err, rows) => {
     if (err) {
       return console.error(err.message);
@@ -39,16 +38,18 @@ router.get('/message/:id', (req, res) => {
     }
     res.render('messages/show', { message: row, dayjs: dayjs });
     
-    // db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
-    //   if (err) {
-    //     return console.error(err.message);
-    //   }
-    //   console.log(`Message with id: ${id} deleted from database`);
-    // })
+    // Message should delete from DB when setTimeout function is called
+    // Will also delete here in case user navigates away from page before setTimeout function executes
+    db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
+      if (err) {
+        return console.error(err.message);
+      }
+      console.log(`Message with id: ${id} deleted from database`);
+    })
   })
 })
 
-// Deletes message from database
+// Deletes message from database when setTimeout function is called
 router.delete('/message/:id', (req, res) => {
   const id = req.params.id;
 
