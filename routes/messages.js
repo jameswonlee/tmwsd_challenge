@@ -19,7 +19,7 @@ router.get('/', function (req, res) {
 
 // Creates a message
 router.post('/create', (req, res) => {
-  const message = req.body.content;
+  const message = req.body.message;
   const timestamp = dayjs().format('YYYY-MM-DD HH:mm:ss');
 
   db.run('INSERT INTO messages (message, timestamp) VALUES (?, ?)', [message, timestamp], (err) => {

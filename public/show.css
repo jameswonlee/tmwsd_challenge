@@ -5,6 +5,7 @@
     }
 
     .message-outer-container {
+        border: solid 2px rgb(0, 0, 110);
         background-color: rgb(163, 182, 220);
     }
 
@@ -19,8 +20,7 @@ body {
 
 .message-outer-container {
     background-color: rgb(163, 182, 220);
-    border: solid;
-    border-color: rgb(150, 150, 243);
+    border: solid 2px rgb(0, 0, 110);
     height: 100vh;
 }
 
