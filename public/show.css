@@ -22,21 +22,46 @@ body {
     background-color: rgb(163, 182, 220);
     border: solid 2px rgb(0, 0, 110);
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 400px;
+    height: 200px;
+    margin-top: 20px;
 }
 
 .message-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 20px;
 }
 
 .message {
-    font-size: 2rem;
+    font-size: 3rem;
+    color: rgb(1, 1, 114);
+}
+
+.message-logo-timestamp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(0, 0, 90);
+    font-size: 1rem;
+}
+
+.message-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .fa-solid.fa-envelope-open-text {
     font-size: 3rem;
+    margin-right: 20px;
 }
 
 .back-to-messages {
