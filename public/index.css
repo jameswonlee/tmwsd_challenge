@@ -35,11 +35,12 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
 .message-incinerator-header {
     color: rgb(0, 0, 90);
+    font-size: 3rem;
 }
 
 .form-container {
@@ -49,6 +50,7 @@ body {
     flex-direction: column;
     justify-content: center;
     border-radius: 4px;
+    /* width: 100%; */
 }
 
 .text-area-container {
@@ -68,7 +70,7 @@ body {
 }
 
 .submit-btn {
-    background-color: rgb(8, 0, 255);
+    background-color: rgb(52, 45, 246);
     margin-top: 20px;
     width: 150px;
     height: 30px;
@@ -76,6 +78,10 @@ body {
     border-radius: 4px;
     color: white;
     border: none;
+}
+
+.submit-btn:hover {
+    cursor: pointer;
 }
 
 .messages-container {
@@ -93,13 +99,23 @@ body {
 .message-link {
     margin-top: 5px;
     font-size: 1rem;
+    border: solid;
+    width: 500px;
+    height: 30px;
+    padding: 5px;
+    background-color: rgb(214, 223, 246);
 }
 
 .message-link-font {
     text-decoration: none;
     color: rgb(3, 6, 88);
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: center;
 }
 
 .fa-regular.fa-envelope {
     font-size: 1.5rem;
+    margin-right: 10px;
 }

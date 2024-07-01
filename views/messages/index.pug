@@ -8,12 +8,12 @@ html
         div.outer-container
             h1.message-incinerator-header Message Incinerator
             div.form-container
-                form(action="/create" method="POST" onSubmit="showAlert()")
+                form(action="/create" method="POST")
                     div.text-area-container
                         textarea.message-text-area(name="content")
                         button.submit-btn(type="submit") Save Message
                 div.messages-container
-                    h2.messages-header Messages
+                    h2.messages-header My saved messages
                     h3.messages-count You have #{messages.length} unread messages
                     li.messages
                         each message in messages 
