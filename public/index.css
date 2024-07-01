@@ -14,12 +14,12 @@
     }
 
     body {
-        background-color: rgb(232, 233, 246);
+        background-color: rgb(218, 220, 245);
     }
 }
 
 body {
-    background-color: rgb(232, 233, 246);
+    background-color: rgb(218, 220, 245);
 }
 
 .outer-container {
@@ -98,6 +98,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: -10px;
 }
 
 .message-link {

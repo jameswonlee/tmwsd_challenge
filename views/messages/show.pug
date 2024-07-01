@@ -2,6 +2,7 @@ doctype html
 html 
     head 
         title Message
+        meta(name="viewport" content="width=device-width, initial-scale=0.75")
         link(rel="stylesheet" href="/show.css")
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
         script.
@@ -14,7 +15,7 @@ html
                             }
                         })
                         .catch(error => console.error('Error:', error));
-                    }, 1000);
+                    }, 500);
                 }
 
             function startCountDown(messageId) {
@@ -39,10 +40,12 @@ html
             div.message-container
                 div.message-logo-timestamp
                     i.fa-solid.fa-envelope-open-text
-                    h1 Message from #{dayjs(message.timestamp).format('MMM-DD-YYYY')} &nbsp;#{dayjs(message.timestamp).format('h:mm:ssa')}
+                    h1.timestamp Message from #{dayjs(message.timestamp).format('MMM-DD-YYYY')} &nbsp;#{dayjs(message.timestamp).format('h:mm:ssa')}
                 div.message-message
                     p.message #{message.message}
-                    p.countdown-message *** This message will self-destruct in <span id="countdown">10</span> seconds ***
-                    a.back-to-messages(href='/') 
+                div.countdown-message 
+                    div.warning-message *** This message will self-destruct in <span id="countdown">10</span> seconds ***
+                    div.back-to-container
+                        a.back-to-messages(href='/') 
                             i.fa-solid.fa-arrow-left
                             | &nbsp;Back to messages

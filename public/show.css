@@ -10,12 +10,22 @@
     }
 
     body {
-        background-color: rgb(232, 233, 246);
+        background-color: rgb(218, 220, 245);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .fa-solid.fa-envelope-open-text {
+        margin-left: 10px;
+    }
+
+    .timestamp {
+        font-size: 1.5rem;
     }
 }
 
 body {
-    background-color: rgb(232, 233, 246);
+    background-color: rgb(218, 220, 245);
 }
 
 .message-outer-container {
@@ -39,12 +49,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    /* margin-top: 10px; */
+
+    /* border: solid 2px red; */
 }
 
 .message {
     font-size: 3rem;
     color: rgb(1, 1, 114);
+    padding: 20px;
+    word-wrap: break-word;
 }
 
 .message-logo-timestamp {
@@ -53,17 +67,30 @@ body {
     align-items: center;
     color: rgb(0, 0, 90);
     font-size: 1rem;
+
+    /* border: solid 2px green; */
 }
 
 .message-message {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(228, 232, 253);
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 20px;
+
+    /* border: 2px solid yellow; */
 }
 
 .fa-solid.fa-envelope-open-text {
     font-size: 3rem;
     margin-right: 20px;
+    color: rgb(227, 225, 247);
+}
+
+.timestamp {
+    color: rgb(2, 2, 119);
 }
 
 .back-to-messages {
@@ -71,8 +98,25 @@ body {
     color: white;
 }
 
+.back-to-container {
+    margin-top: 30px;
+}
+
 .countdown-message {
     color: red;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* border: 2px solid purple; */
+}
+
+.warning-message {
+    margin-top: 40px;
+    font-size: 1.1rem;
 }
 
 #countdown {
