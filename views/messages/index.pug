@@ -3,6 +3,7 @@ html
     head 
         title Self-Destructing Messages
         link(rel="stylesheet" href="/index.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
     body
         div.outer-container
             h1.burn-messenger-header Burn Messenger
@@ -16,5 +17,7 @@ html
                     h3.messages-count You have #{messages.length} unread messages
                     li.messages
                         each message in messages 
-                            div.message-link 
-                                a(href=`/message/${message.id}`) View message from #{dayjs(message.timestamp).format('MMM-D-YY h:mm:ssa')}
+                            div.message-link
+                                a(href=`/message/${message.id}`).message-link-font
+                                    i.fa-regular.fa-envelope
+                                    |  #{dayjs(message.timestamp).format('MMM-DD-YY h:mm:ssa')}

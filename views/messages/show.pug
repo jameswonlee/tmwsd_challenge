@@ -3,24 +3,24 @@ html
     head 
         title Message
         link(rel="stylesheet" href="/show.css")
-        script.
-            function deleteMessageAfterTenSeconds(messageId) {
-                setTimeout(() => {
-                    fetch(`/message/${messageId}`, { method: 'DELETE' })
-                        .then(response => {
-                            if (response.ok) {
-                                window.location.href = '/';
-                            }
-                        })
-                        .catch(error => console.error('Error:', error));
-                    }, 10000);
-                }
-                window.onload = function() {
-                    deleteMessageAfterTenSeconds(#{message.id});
-                };
+        //- script.
+        //-     function deleteMessageAfterTenSeconds(messageId) {
+        //-         setTimeout(() => {
+        //-             fetch(`/message/${messageId}`, { method: 'DELETE' })
+        //-                 .then(response => {
+        //-                     if (response.ok) {
+        //-                         window.location.href = '/';
+        //-                     }
+        //-                 })
+        //-                 .catch(error => console.error('Error:', error));
+        //-             }, 10000);
+        //-         }
+        //-         window.onload = function() {
+        //-             deleteMessageAfterTenSeconds(#{message.id});
+        //-         };
     body 
         div.message-outer-container
-            h1 Message from #{dayjs(message.timestamp).format('MMM-D-YY h:m:ssa')}
+            h1 Message from #{dayjs(message.timestamp).format('MMM-DD-YY h:mm:ssa')}
             p #{message.message}
             p This message will self-destruct after 10 seconds
             a(href='/') Back to messages

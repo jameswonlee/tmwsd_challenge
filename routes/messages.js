@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
+
 const dayjs = require('dayjs');
 const utc = require('dayjs/plugin/utc');
 dayjs.extend(utc);
@@ -19,8 +20,9 @@ router.get('/', function (req, res) {
 // Creates a message
 router.post('/create', (req, res) => {
   const message = req.body.content;
+  const timestamp = dayjs().format('YYYY-MM-DD HH:mm:ss');
 
-  db.run('INSERT INTO messages (message) VALUES (?)', [message], (err) => {
+  db.run('INSERT INTO messages (message, timestamp) VALUES (?, ?)', [message, timestamp], (err) => {
     if (err) {
       return console.error(err.message);
     }

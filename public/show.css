@@ -2,7 +2,6 @@
     body {
         width: 1600px;
         margin: 0 auto;
-        background-color: rgb(163, 182, 220);
     }
 
     .message-outer-container {
@@ -10,10 +9,16 @@
     }
 
     body {
-        background-color: rgb(219, 220, 250);
+        background-color: rgb(232, 233, 246);
     }
+}
+
+body {
+    background-color: rgb(232, 233, 246);
 }
 
 .message-outer-container {
     background-color: rgb(163, 182, 220);
+    border: solid;
+    border-color: rgb(150, 150, 243);
 }
