@@ -38,7 +38,7 @@ body {
     padding-top: 50px;
 }
 
-.burn-messenger-header {
+.message-incinerator-header {
     color: rgb(0, 0, 90);
 }
 
@@ -64,6 +64,7 @@ body {
     height: 200px;
     border-radius: 4px;
     font-size: 1.5rem;
+    padding: 10px;
 }
 
 .submit-btn {
