@@ -2,9 +2,33 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
 
+const crypto = require('crypto');
+const algorithm = 'aes-256-cbc';
+const key = crypto.randomBytes(32);
+const iv = crypto.randomBytes(16);
+
 const dayjs = require('dayjs');
 const utc = require('dayjs/plugin/utc');
 dayjs.extend(utc);
+
+
+// Encrypt data using Crypto
+function encrypt(text) {
+  let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
+  let encrypted = cipher.update(text);
+  encrypted = Buffer.concat([encrypted, cipher.final()]);
+  return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex')};
+}
+
+// Decrypt data using Crypto
+function decrypt(text) {
+  let iv = Buffer.from(text.iv, 'hex');
+  let encryptedText = Buffer.from(text.encryptedData, 'hex');
+  let decipher = crypto.createDecipheriv(algorithm, Buffer.from(key), iv);
+  let decrypted = decipher.update(encryptedText);
+  decrypted = Buffer.concat([decrypted, decipher.final()]);
+  return decrypted.toString();
+}
 
 
 // Queries all messages
@@ -19,10 +43,12 @@ router.get('/', function (req, res) {
 
 // Creates a message
 router.post('/create', (req, res) => {
-  const message = req.body.message;
+  const { iv, encryptedData } = encrypt(req.body.message);
+  const sql = 'INSERT INTO messages (message, iv, timestamp) VALUES (?, ?, ?)';
   const timestamp = dayjs().format('YYYY-MM-DD HH:mm:ss');
+  const params = [encryptedData, iv, timestamp];
 
-  db.run('INSERT INTO messages (message, timestamp) VALUES (?, ?)', [message, timestamp], (err) => {
+  db.run(sql, params, (err) => {
     if (err) {
       return console.error(err.message);
     }
@@ -33,12 +59,15 @@ router.post('/create', (req, res) => {
 // Queries single message and then deletes from database
 router.get('/message/:id', (req, res) => {
   const id = req.params.id;
+  const sql = 'SELECT * FROM messages WHERE id = (?)'
 
-  db.get('SELECT * FROM messages WHERE id = (?)', [id], (err, row) => {
+  db.get(sql, [id], (err, row) => {
     if (err) {
       return console.error(err.message);
     }
-    res.render('messages/show', { message: row, dayjs: dayjs });
+    const decryptedMessage = decrypt({ iv: row.iv, encryptedData: row.message });
+    console.log('decrypetdMessage', decryptedMessage);
+    res.render('messages/show', { message: decryptedMessage, timestamp: row.timestamp, dayjs: dayjs });
     
     // Backup delete route in case user navigates away from page before setTimeout function executes
     db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
