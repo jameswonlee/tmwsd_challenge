@@ -30,7 +30,7 @@ body {
     align-items: center;
     height: 100vh;
     overflow-y: auto;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 50px;
 }
 
@@ -142,4 +142,28 @@ body {
     font-size: 1rem;
     color: rgb(0, 0, 90);
     margin-top: -10px;
+}
+
+.dark-mode-button {
+    margin-right: -1300px;
+    background-color: rgb(67, 67, 187);
+    color: white;
+    border-radius: 4px;
+}
+
+.dark-mode {
+    background-color: rgb(2, 2, 105);
+    color: white;
+}
+
+.dark-mode .outer-container {
+    background-color: rgb(2, 2, 105);
+}
+
+.dark-mode .messages-header {
+    color: white;
+}
+
+.dark-mode .messages-count {
+    color: white;
 }

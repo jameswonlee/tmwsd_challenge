@@ -1,6 +1,10 @@
-@media screen and (min-width:1200px) {
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (min-width:1600px) {
     body {
-        width: 1200px;
+        width: 1600px;
         margin: 0 auto;
     }
 
@@ -16,11 +20,11 @@
 
 @media screen and (max-width: 600px) {
     .fa-solid.fa-envelope-open-text {
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     .timestamp {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 }
 
@@ -79,6 +83,7 @@ body {
     width: 100%;
     border-radius: 4px;
     margin-top: 20px;
+    box-shadow: 2px 2px 6px rgb(99, 132, 240);
 
     /* border: 2px solid yellow; */
 }
@@ -94,7 +99,7 @@ body {
 }
 
 .back-to-messages {
-    text-decoration: none;
+    text-decoration: underline;
     color: white;
 }
 
@@ -121,4 +126,28 @@ body {
 
 #countdown {
     font-weight: 600
+}
+
+.dark-mode-button {
+    margin-right: -1300px;
+    background-color: rgb(67, 67, 187);
+    color: white;
+    border-radius: 4px;
+}
+
+.dark-mode {
+    background-color: rgb(2, 2, 105);
+    color: white;
+}
+
+.dark-mode .message-outer-container {
+    background-color: rgb(2, 2, 105);
+}
+
+.dark-mode .timestamp {
+    color: white;
+}
+
+.dark-mode .messages-count {
+    color: white;
 }

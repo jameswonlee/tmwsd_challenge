@@ -31,11 +31,44 @@ html
                 }, 1000);
             }
 
+            function toggleDarkMode() {
+                const body = document.body;
+                const button = document.getElementById('dark-mode-toggle');
+                body.classList.toggle('dark-mode');
+
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('dark-mode', 'true');
+                    button.textContent = 'Light Mode';
+                    button.style.backgroundColor = 'rgb(200, 200, 200)';
+                    button.style.color = 'black';
+                } else {
+                    localStorage.setItem('dark-mode', 'false');
+                    button.textContent = 'Dark Mode';
+                    button.style.backgroundColor = 'rgb(67, 67, 187)';
+                    button.style.color = 'white';
+                }
+            }
+
             window.onload = function() {
-                startCountDown(#{message.id});
-            };
-    body 
+                startCountDown(#{messageId});
+
+                const body = document.body;
+                const button = document.getElementById('dark-mode-toggle');
+                if (localStorage.getItem('dark-mode') === 'true') {
+                    body.classList.add('dark-mode');
+                    button.textContent = 'Light Mode';
+                    button.style.backgroundColor = 'rgb(200, 200, 200)';
+                    button.style.color = 'black';
+                } else {
+                    button.textContent = 'Dark Mode';
+                    button.style.backgroundColor = 'rgb(67, 67, 187)';
+                    button.style.color = 'white';
+                }
+            }
+
+    body
         div.message-outer-container
+            button.dark-mode-button(onclick="toggleDarkMode()") Toggle Dark Mode
             img(src="/logo.svg" alt="Website Logo" class="logo")
             div.message-container
                 div.message-logo-timestamp
