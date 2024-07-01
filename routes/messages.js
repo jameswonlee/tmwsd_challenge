@@ -4,7 +4,7 @@ const db = require('../db/db');
 
 const crypto = require('crypto');
 const algorithm = 'aes-256-cbc';
-const key = crypto.randomBytes(32);
+const key = Buffer.from('8d423df62c407c302a11663b875dba166547fbec316645e940260856436348dd', 'hex');
 const iv = crypto.randomBytes(16);
 
 const dayjs = require('dayjs');
@@ -31,7 +31,7 @@ function decrypt(text) {
 }
 
 
-// Queries all messages
+// Queries all messages (currenty only being used to retreive length of messages array - does not require decrypt)
 router.get('/', function (req, res) {
   db.all('SELECT * FROM messages', (err, rows) => {
     if (err) {
@@ -41,7 +41,7 @@ router.get('/', function (req, res) {
   })
 })
 
-// Creates a message
+// Creates an encrypted message
 router.post('/create', (req, res) => {
   const { iv, encryptedData } = encrypt(req.body.message);
   const sql = 'INSERT INTO messages (message, iv, timestamp) VALUES (?, ?, ?)';
@@ -56,7 +56,7 @@ router.post('/create', (req, res) => {
   })
 });
 
-// Queries single message and then deletes from database
+// Queries single message, decrypes, and then deletes from database
 router.get('/message/:id', (req, res) => {
   const id = req.params.id;
   const sql = 'SELECT * FROM messages WHERE id = (?)'
