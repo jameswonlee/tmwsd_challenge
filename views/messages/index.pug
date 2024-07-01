@@ -23,10 +23,15 @@ html
                         button.submit-btn(type="submit") Save Message
                 div.messages-container
                     h2.messages-header My saved messages
-                    h3.messages-count You have #{messages.length} unread messages
-                    li.messages
-                        each message in messages 
-                            div.message-link
-                                a(href=`/message/${message.id}`).message-link-font
-                                    i.fa-regular.fa-envelope
-                                    |  #{dayjs(message.timestamp).format('MMM-DD-YY h:mm:ssa')}
+                    if messages && messages.length == 1
+                        h3.messages-count You have #{messages.length} unread message
+                    else if messages
+                        h3.messages-count You have #{messages.length} unread messages
+                    else
+                        h3.messages-count You have 0 unread messages
+                    ul.messages
+                    each message in messages || []
+                        div.message-link
+                            a(href=`/message/${message.id}`).message-link-font
+                                i.fa-regular.fa-envelope
+                                |  #{dayjs(message.timestamp).format('MMM-DD-YY h:mm:ssa')}

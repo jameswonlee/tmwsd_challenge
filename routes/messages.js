@@ -41,16 +41,16 @@ router.get('/message/:id', (req, res) => {
     res.render('messages/show', { message: row, dayjs: dayjs });
     
     // Backup delete route in case user navigates away from page before setTimeout function executes
-    // db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
-    //   if (err) {
-    //     return console.error(err.message);
-    //   }
-    //   console.log(`Message with id: ${id} deleted from database`);
-    // })
+    db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
+      if (err) {
+        return console.error(err.message);
+      }
+      console.log(`Message with id: ${id} deleted from database`);
+    })
   })
 })
 
-// Deletes message from database when setTimeout function is called
+// Deletes message from database when setTimeout function is called (and executed)
 router.delete('/message/:id', (req, res) => {
   const id = req.params.id;
 
