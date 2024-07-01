@@ -3,24 +3,30 @@ html
     head 
         title Message
         link(rel="stylesheet" href="/show.css")
-        //- script.
-        //-     function deleteMessageAfterTenSeconds(messageId) {
-        //-         setTimeout(() => {
-        //-             fetch(`/message/${messageId}`, { method: 'DELETE' })
-        //-                 .then(response => {
-        //-                     if (response.ok) {
-        //-                         window.location.href = '/';
-        //-                     }
-        //-                 })
-        //-                 .catch(error => console.error('Error:', error));
-        //-             }, 10000);
-        //-         }
-        //-         window.onload = function() {
-        //-             deleteMessageAfterTenSeconds(#{message.id});
-        //-         };
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+        script.
+            function deleteMessageAfterTenSeconds(messageId) {
+                setTimeout(() => {
+                    fetch(`/message/${messageId}`, { method: 'DELETE' })
+                        .then(response => {
+                            if (response.ok) {
+                                window.location.href = '/';
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                    }, 10000);
+                }
+                window.onload = function() {
+                    deleteMessageAfterTenSeconds(#{message.id});
+                };
+
     body 
         div.message-outer-container
-            h1 Message from #{dayjs(message.timestamp).format('MMM-DD-YY h:mm:ssa')}
-            p #{message.message}
-            p This message will self-destruct after 10 seconds
-            a(href='/') Back to messages
+            div.message-container
+                i.fa-solid.fa-envelope-open-text
+                h1 Message from #{dayjs(message.timestamp).format('MMM-DD-YYYY')} &nbsp;#{dayjs(message.timestamp).format('h:mm:ssa')}
+                p.message #{message.message}
+                p This message will self-destruct after 10 seconds
+                a.back-to-messages(href='/') 
+                    i.fa-solid.fa-arrow-left
+                    | &nbsp;Back to messages

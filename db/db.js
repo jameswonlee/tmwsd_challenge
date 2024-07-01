@@ -2,6 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 const dayjs = require('dayjs');
 const utc = require('dayjs/plugin/utc');
 dayjs.extend(utc);
+
 const db = new sqlite3.Database('db/messages.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
     if (err) {
         console.error(err.message);

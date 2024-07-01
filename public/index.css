@@ -35,6 +35,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    padding-top: 50px;
 }
 
 .burn-messenger-header {

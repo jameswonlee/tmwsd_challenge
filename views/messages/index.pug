@@ -4,11 +4,18 @@ html
         title Self-Destructing Messages
         link(rel="stylesheet" href="/index.css")
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+        script.
+            function showAlert(event) {
+                const messageContent = document.querySelector('textarea[name="content"]').value;
+                if (messageContent) {
+                    alert('Message saved!');
+                }
+            }
     body
         div.outer-container
-            h1.burn-messenger-header Burn Messenger
+            h1.burn-messenger-header Burner Messenger
             div.form-container
-                form(action="/create" method="POST")
+                form(action="/create" method="POST" onSubmit="showAlert()")
                     div.text-area-container
                         textarea.message-text-area(name="content")
                         button.submit-btn(type="submit") Save Message

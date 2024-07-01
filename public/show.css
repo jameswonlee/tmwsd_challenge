@@ -1,6 +1,6 @@
-@media screen and (min-width:1600px) {
+@media screen and (min-width:1200px) {
     body {
-        width: 1600px;
+        width: 1200px;
         margin: 0 auto;
     }
 
@@ -21,4 +21,25 @@ body {
     background-color: rgb(163, 182, 220);
     border: solid;
     border-color: rgb(150, 150, 243);
+    height: 100vh;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.message {
+    font-size: 2rem;
+}
+
+.fa-solid.fa-envelope-open-text {
+    font-size: 3rem;
+}
+
+.back-to-messages {
+    text-decoration: none;
+    color: white;
 }

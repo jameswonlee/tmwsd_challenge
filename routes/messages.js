@@ -40,8 +40,7 @@ router.get('/message/:id', (req, res) => {
     }
     res.render('messages/show', { message: row, dayjs: dayjs });
     
-    // Message should delete from DB when setTimeout function is called
-    // Will also delete here in case user navigates away from page before setTimeout function executes
+    // Backup delete route in case user navigates away from page before setTimeout function executes
     db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
       if (err) {
         return console.error(err.message);
