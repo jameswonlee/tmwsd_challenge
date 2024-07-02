@@ -151,3 +151,15 @@ body {
 .dark-mode .messages-count {
     color: white;
 }
+
+.dark-mode .message-message {
+    background-color: rgb(1, 1, 65);
+}
+
+.dark-mode .message {
+    color: white;
+}
+
+.dark-mode-button:hover {
+    cursor: pointer;
+}

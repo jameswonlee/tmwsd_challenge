@@ -125,6 +125,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 2px;
 }
 
 .fa-regular.fa-envelope {
@@ -151,6 +152,10 @@ body {
     border-radius: 4px;
 }
 
+.dark-mode-button:hover {
+    cursor: pointer;
+}
+
 .dark-mode {
     background-color: rgb(2, 2, 105);
     color: white;
@@ -166,4 +171,17 @@ body {
 
 .dark-mode .messages-count {
     color: white;
+}
+
+.dark-mode .message-text-area {
+    background-color: rgb(1, 1, 65);
+    color: white;
+}
+
+.dark-mode .message-link {
+    background-color: rgb(138, 138, 246);
+}
+
+.dark-mode .message-link:hover {
+    background-color: rgb(43, 43, 165);
 }

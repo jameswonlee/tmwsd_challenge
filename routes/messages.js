@@ -12,7 +12,7 @@ const utc = require('dayjs/plugin/utc');
 dayjs.extend(utc);
 
 
-// Encrypt data using Crypto
+// Encrypts data using Crypto
 function encrypt(text) {
   let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
   let encrypted = cipher.update(text);
@@ -20,7 +20,7 @@ function encrypt(text) {
   return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex')};
 }
 
-// Decrypt data using Crypto
+// Decrypts data using Crypto
 function decrypt(text) {
   let iv = Buffer.from(text.iv, 'hex');
   let encryptedText = Buffer.from(text.encryptedData, 'hex');
@@ -30,8 +30,7 @@ function decrypt(text) {
   return decrypted.toString();
 }
 
-
-// Queries all messages (currenty only being used to retreive length of messages array - does not require decrypt)
+// Queries all messages (currenty only being used to retreive length of messages table - does not require decrypt)
 router.get('/', function (req, res) {
   db.all('SELECT * FROM messages', (err, rows) => {
     if (err) {
@@ -66,16 +65,15 @@ router.get('/message/:id', (req, res) => {
       return console.error(err.message);
     }
     const decryptedMessage = decrypt({ iv: row.iv, encryptedData: row.message });
-    console.log('decrypetdMessage', decryptedMessage);
     res.render('messages/show', { message: decryptedMessage, timestamp: row.timestamp, dayjs: dayjs });
     
     // Backup delete route in case user navigates away from page before setTimeout function executes
-    db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
-      if (err) {
-        return console.error(err.message);
-      }
-      console.log(`Message with id: ${id} deleted from database`);
-    })
+    // db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
+    //   if (err) {
+    //     return console.error(err.message);
+    //   }
+    //   console.log(`Message with id: ${id} deleted from database`);
+    // })
   })
 })
 
