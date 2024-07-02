@@ -56,7 +56,7 @@ body {
 }
 
 .message {
-    font-size: 3rem;
+    font-size: 1rem;
     color: rgb(1, 1, 114);
     padding: 20px;
     word-wrap: break-word;
