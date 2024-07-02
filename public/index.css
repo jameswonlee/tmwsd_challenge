@@ -132,12 +132,11 @@ body {
 .messages-header {
     color: rgb(0, 0, 90);
     font-size: 2rem;
-    text-decoration: underline;
 }
 
 .messages-count {
-    font-size: 1rem;
-    color: rgb(0, 0, 90);
+    font-size: 0.9rem;
+    color: rgb(44, 44, 91);
     margin-top: -10px;
 }
 
