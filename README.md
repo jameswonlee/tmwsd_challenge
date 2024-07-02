@@ -2,13 +2,12 @@
 
 [message-incinerator-logo]: ./public/logo.svg
 
-
 # About
-Message Incinerator is a full-stack web application designed to provide a secure and temporary means of storing messages. Users can create, save, and view messages that self-destruct after a single view. Each message is encrypted to safeguard your data. The application also includes a dark mode/light mode toggle for improved usability and a countdown timer that indicates when a message will self-destruct.
+Message Incinerator is a full-stack web application designed to provide secure and temporary message storage. Users can create, save, and view messages that self-destruct after a single view. Each message is encrypted to safeguard your data. The application also includes a dark mode/light mode toggle for improved usability, a countdown timer that indicates when a message will self-destruct, and a mobile-friendly interface for seamless use on any device.
 
 ## ▶️ Getting started
 
-1. Clone repository.
+1. Clone repository
 ```
 https://github.com/jameswonlee/tmwsd_challenge.git
 ```
@@ -17,7 +16,7 @@ https://github.com/jameswonlee/tmwsd_challenge.git
 ```
 npm install
 ``` 
-3. Start application - This will create your SQLite3 database
+3. Start application [this will create your SQLite3 database]
 ```
 npm start | node app.js
 ```
@@ -30,8 +29,9 @@ npm start | node app.js
 - [✔] As a user, when I open a message, the message should self-destruct (delete from the database).
 - [✔] As a user, I should no longer see messages on the homepage that have been viewed.
 
+
+## Mobile demo
+
 ## Desktop demo
 
 
-
-## Mobile demo
