@@ -1,22 +1,28 @@
-# This message will self-destruct
+![message-incinerator-logo]
 
-A NodeJS programming challenge.
+[message-incinerator-logo]: ./public/logo.svg
 
-The goal here is to create a simple web application that allows someone to create a message, view that message at a unique URL, and destroy the message upon viewing it. Just like the title states, this message will self-destruct!
 
-## Step 1: Installation
+# About
+Message Incinerator is a full-stack web application designed to provide a secure and temporary means of storing messages. Users can create, save, and view messages that self-destruct after a single view. Each message is encrypted to safeguard your data. The application also includes a dark mode/light mode toggle for improved usability and a countdown timer that indicates when a message will self-destruct.
 
-Fork this repository, clone it, install dependencies, and run it.
+## ▶️ Getting started
 
-``` bash
-git clone {{your_fork_url_here}}
+1. Clone repository.
+```
+https://github.com/jameswonlee/tmwsd_challenge.git
+```
+2. Install dependencies
+
+```
 npm install
-node app.js
+``` 
+3. Start application - This will create your SQLite3 database
+```
+npm start | node app.js
 ```
 
-## Step 2: Complete the Requirements
-
-Complete the following requirements by using any database engine of your choice. Update this readme by checking the following boxes as you go.
+## Features
 
 - [✔] As a user, I should see a form to create a new message on the homepage.
 - [✔] As a user, I should see a list of links for all created messages below the 'new message' form on the homepage.
@@ -24,10 +30,8 @@ Complete the following requirements by using any database engine of your choice.
 - [✔] As a user, when I open a message, the message should self-destruct (delete from the database).
 - [✔] As a user, I should no longer see messages on the homepage that have been viewed.
 
-Two more things:
-* Remember to add documentation to your README so the app can be installed and run locally for review.
-* Bonus points for making it look pretty :sparkles:
+## Desktop demo
 
-## Step 3: Submit
 
-Send an email with a link to your fork when finished. Thanks!
+
+## Mobile demo
