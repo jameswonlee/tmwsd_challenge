@@ -32,7 +32,7 @@ npm start | node app.js
 
 ## Mobile demo
 
-![mobile-demo](https://imgur.com/a/ZhPOKPr)
+![mobile-demo](./assets/mobile-demo.gif)
 
 ## Desktop demo
 
