@@ -46,8 +46,6 @@ body {
 }
 
 .form-container {
-    /* border: solid;
-    border-color: red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,8 +53,6 @@ body {
 }
 
 .text-area-container {
-    /* border: solid;
-    border-color: green; */
     display: flex;
     flex-direction: column;
     align-items: center;
