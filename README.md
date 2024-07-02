@@ -21,6 +21,15 @@ npm install
 npm start | node app.js
 ```
 
+## Mobile demo
+
+![mobile-demo](./assets/mobile-demo.gif)
+
+## Desktop demo
+
+![desktop-demo](./assets/desktop-demo.gif)
+
+
 ## Features
 
 - [✔] As a user, I should see a form to create a new message on the homepage.
@@ -30,10 +39,8 @@ npm start | node app.js
 - [✔] As a user, I should no longer see messages on the homepage that have been viewed.
 
 
-## Mobile demo
 
-![mobile-demo](./assets/mobile-demo.gif)
 
-## Desktop demo
+
 
 
