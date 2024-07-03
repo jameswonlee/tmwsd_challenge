@@ -55,7 +55,7 @@ router.post('/create', (req, res) => {
   })
 });
 
-// Queries single message, decrypes, and then deletes from database
+// Queries single message, decrypts, and then deletes from database
 router.get('/message/:id', (req, res) => {
   const id = req.params.id;
   const sql = 'SELECT * FROM messages WHERE id = (?)'
