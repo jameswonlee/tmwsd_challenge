@@ -17,7 +17,7 @@ function encrypt(text) {
   let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
   let encrypted = cipher.update(text);
   encrypted = Buffer.concat([encrypted, cipher.final()]);
-  return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex')};
+  return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
 }
 
 // Decrypts data using Crypto
@@ -64,9 +64,13 @@ router.get('/message/:id', (req, res) => {
     if (err) {
       return console.error(err.message);
     }
-    const decryptedMessage = decrypt({ iv: row.iv, encryptedData: row.message });
-    res.render('messages/show', { message: decryptedMessage, timestamp: row.timestamp, dayjs: dayjs });
-    
+    if (row) {
+      const decryptedMessage = decrypt({ iv: row.iv, encryptedData: row.message });
+      res.render('messages/show', { message: decryptedMessage, timestamp: row.timestamp, dayjs: dayjs });
+    } else {
+      return console.error('No such ');
+    }
+
     // Backup delete route in case user navigates away from page before setTimeout function executes
     db.run('DELETE FROM messages WHERE id = (?)', [id], (err) => {
       if (err) {

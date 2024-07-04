@@ -53,7 +53,7 @@ html
                 startCountDown(#{messageId});
 
                 const body = document.body;
-                const button = document.getElementById('dark-mode-toggle');
+                const button = document.querySelector('dark-mode-button');
                 if (localStorage.getItem('dark-mode') === 'true') {
                     body.classList.add('dark-mode');
                     button.textContent = 'Light Mode';

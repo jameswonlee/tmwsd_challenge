@@ -17,7 +17,7 @@ html
 
             function toggleDarkMode() {
                 const body = document.body;
-                const button = document.getElementById('dark-mode-toggle');
+                const button = document.querySelector('.dark-mode-button');
                 body.classList.toggle('dark-mode');
 
                 if (body.classList.contains('dark-mode')) {
@@ -36,7 +36,6 @@ html
             window.onload = function() {
                 const body = document.body;
                 const button = document.querySelector('.dark-mode-button');
-                console.log('button', button)
                 if (localStorage.getItem('dark-mode') === 'true') {
                     body.classList.add('dark-mode');
                     button.textContent = 'Light Mode';
@@ -49,12 +48,16 @@ html
                 }
             }
 
+            //- document.getElementById('message-form').addEventListener('submit'. function(event) {
+            //-     event.preventDefault();
+            //- })
+
     body
         div.outer-container
             button.dark-mode-button(onclick="toggleDarkMode()")
             img(src="/logo.svg" alt="Website Logo" class="logo")
             div.form-container
-                form(action="/create" method="POST" onSubmit="return validateForm()")
+                form#message-form(action="/create" method="POST" onSubmit="return validateForm()")
                     div.text-area-container
                         textarea.message-text-area(name="message")
                         button.submit-btn(type="submit") Save Message
